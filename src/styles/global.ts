@@ -35,7 +35,7 @@ html {
 }
 
 body {
-  background: var(---gray-50);
+  background: var(--gray-50);
 }
 
 body, input, textarea, button {
