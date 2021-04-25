@@ -47,7 +47,7 @@ export const Homepage = styled.div`
             text-decoration: none;
             line-height: 1.4rem;
 
-            &.hover {
+            &:hover {
               text-decoration: underline;
             }
           }
