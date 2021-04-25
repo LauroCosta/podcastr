@@ -6,7 +6,7 @@ import parseISO from "date-fns/parseISO";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { api } from "../../services/api";
 import { converDurationToTimeString } from "../../utils/convertDurationToTimeString";
-import { Container } from "./episodeStyle";
+import { Container } from "../../styles/pages/episodes";
 
 type Episode = {
   id: string;
@@ -26,45 +26,62 @@ type EpisodeProps = {
 export default function Episode({ episode }: EpisodeProps) {
   return (
     <Container>
-      <div className="thumbnailContainer">
-        
-       <Link href="/">
-         <button type="button">
-            <img src="/arrow-left.svg" alt="Voltar" />
-         </button>   
-       </Link> 
+      <div className="episodeContainer">
+        <div className="thumbnailContainer">
+          <Link href="/">
+            <button type="button">
+              <img src="/arrow-left.svg" alt="Voltar" />
+            </button>
+          </Link>
 
-       
-        <Image
-          width={700}
-          height={160}
-          src={episode.thumbnail}
-          objectFit="cover"
+          <Image
+            width={700}
+            height={160}
+            src={episode.thumbnail}
+            objectFit="cover"
+          />
+
+          <button type="button">
+            <img src="/play.svg" alt="Tocar episódio" />
+          </button>
+        </div>
+
+        <header>
+          <h1>{episode.title}</h1>
+          <span>{episode.title}</span>
+          <span>{episode.publishedAt}</span>
+          <span>{episode.durationAsString}</span>
+        </header>
+
+        <div
+          className="description"
+          dangerouslySetInnerHTML={{ __html: episode.description }}
         />
-
-        <button type="button">
-          <img src="/play.svg" alt="Tocar episódio" />
-        </button>
       </div>
-
-      <header>
-        <h1>{episode.title}</h1>
-        <span>{episode.title}</span>
-        <span>{episode.publishedAt}</span>
-        <span>{episode.durationAsString}</span>
-      </header>
-
-      <div
-        className="description"
-        dangerouslySetInnerHTML={{ __html: episode.description }}
-      />
     </Container>
   );
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  
+  const { data } = await api.get('episodes', {
+    params: {
+      _limit: 2,
+      _sort: 'published_at',
+      _order: 'desc'
+    }
+  })
+
+  const paths = data.map(episode => {
+    return {
+      params: {
+        slug: episode.id
+      }
+    }
+  })
+  
   return {
-    paths: [],
+    paths,
     fallback: "blocking",
   };
 };

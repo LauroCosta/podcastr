@@ -5,7 +5,7 @@ import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { api } from '../services/api';
 import { converDurationToTimeString } from '../utils/convertDurationToTimeString';
-import { Homepage } from './homeStyle';
+import { Homepage } from '../styles/pages/home';
 
 type Episode = {
   id: string;
