@@ -126,7 +126,7 @@ export const Buttons = styled.div`
       border-radius: 1rem;
       background: var(--purple-400);
 
-      &:hover {
+      &:hover:not(:disabled) {
         filter: brightness(0.95);
       }
     }
