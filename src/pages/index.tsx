@@ -6,6 +6,8 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { api } from '../services/api';
 import { converDurationToTimeString } from '../utils/convertDurationToTimeString';
 import { Homepage } from '../styles/pages/home';
+import { useContext } from 'react';
+import { PlayerContext } from '../contexts/PlayerContext';
 
 type Episode = {
   id: string;
@@ -13,6 +15,7 @@ type Episode = {
   thumbnail: string;
   description: string;
   members: string;
+  duration: number;
   durationAsString: string;
   url: string;
   publishedAt: string;
@@ -24,6 +27,9 @@ type HomeProps = {
 }
 
 export default function Home({ allEpisodes, latestEpisodes }: HomeProps) {
+  
+  const { play } = useContext(PlayerContext);
+  
   return (
     <Homepage>
       <section className="latestEpisodes">
@@ -50,7 +56,7 @@ export default function Home({ allEpisodes, latestEpisodes }: HomeProps) {
                   <span>{episode.durationAsString}</span>
                 </div>
 
-                <button type='button'>
+                <button type='button' onClick={() => play(episode)}>
                   <img src="/play-green.svg" alt="Tocar episódio"/>
                 </button>
               </li>
@@ -129,6 +135,7 @@ export const getStaticProps: GetStaticProps = async() => {
       thumbnail: episode.thumbnail,
       members: episode.members,
       publishedAt: format(parseISO(episode.published_at), 'd MMM yy', {locale: ptBR}),
+      duration: episode.file.duration,
       durationAsString: converDurationToTimeString(Number(episode.file.duration)),
       description: episode.description,
       url: episode.file.url,
