@@ -28,7 +28,7 @@ export const Container = styled.div`
 
     align-self: stretch;
 
-    &.empty {
+    &.empty{
       opacity: 0.5;
     }
   }
@@ -114,6 +114,7 @@ export const Buttons = styled.div`
 
     &:disabled {
       cursor: default;
+      opacity: 0.5;
     }
 
     &:hover:not(:disabled) {
