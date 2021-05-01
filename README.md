@@ -21,11 +21,9 @@
 - [Typescript](https://www.typescriptlang.org/)
 - [Next.js](https://nextjs.org/)
 
-## 💻 Getting started
-
 ### Requisitos
 
-- Você precisa instalar ambos [Node.js](https://nodejs.org/en/download/) e [Yarn](https://yarnpkg.com/) para executar este projeto.
+- Você precisa instalar [Node.js](https://nodejs.org/en/download/) e [Yarn](https://yarnpkg.com/) para executar este projeto.
 
 **Clone o projeto e acesse a pasta**
 
@@ -36,13 +34,13 @@ $ git clone https://github.com/LauroCosta/podcastr && cd podcastr
 **Siga os passos abaixo**
 
 ```bash
-# Install the dependencies
+# Instale as dependências
 $ yarn
 
-# Run the backend fake server
+# Execute o servidor que simula um back-end
 $ yarn server
 
-# Run the web server
+# Execute o servidor web
 $ yarn dev
 ```
 
@@ -50,6 +48,6 @@ O aplicativo estará disponível para acesso em seu navegador em `http://localho
 
 ## 📝 Licença
 
-Este projeto está licenciado sob a MIT License - Veja o [LICENSE](LICENSE) arquivo.
+Este projeto está licenciado sob a MIT License - Veja o arquivo de [LICENSE](LICENÇA).
 
 ---
