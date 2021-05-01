@@ -12,6 +12,8 @@ type PlayerContextData = {
   episodeList: Episode[]; 
   currentEpisodeIndex: number;
   isPlaying: boolean;
+  isLooping: boolean;
+  isShuffling: boolean;
   hasPrevious: boolean;
   hasNext: boolean;
   play: (episode: Episode) => void;
@@ -19,6 +21,8 @@ type PlayerContextData = {
   playNext: () => void;
   playPrevious: () => void;
   togglePlay: () => void;
+  toggleLoop: () => void;
+  toggleShuffle: () => void;
   setPlayingState: (state: boolean) => void;
 }
 
@@ -33,6 +37,8 @@ export function PlayerContextProvider({ children }: PlayerContextProviderProps) 
   const [episodeList, setEpisodeList] = useState([]);
   const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isLooping, setIsLooping] = useState(false);
+  const [isShuffling, setIsShuffling] = useState(false);
 
   function play(episode: Episode){
     setEpisodeList([episode]);
@@ -46,10 +52,16 @@ export function PlayerContextProvider({ children }: PlayerContextProviderProps) 
     setIsPlaying(true);
   }
 
-
-
   function togglePlay() {
     setIsPlaying(!isPlaying);
+  }
+
+  function toggleLoop(){
+    setIsLooping(!isLooping);
+  }
+
+  function toggleShuffle(){
+    setIsShuffling(!isShuffling);
   }
 
   function setPlayingState(state: boolean) {
@@ -60,9 +72,16 @@ export function PlayerContextProvider({ children }: PlayerContextProviderProps) 
   const hasNext = (currentEpisodeIndex + 1) < episodeList.length;
 
   function playNext() {
-    if (hasNext){
+
+    if (isShuffling) {
+      const nextRandomEpisodeIndex = Math.floor(Math.random() * episodeList.length);
+      
+      setCurrentEpisodeIndex(nextRandomEpisodeIndex);
+    } else if (hasNext){
       setCurrentEpisodeIndex(currentEpisodeIndex +1);
     }
+
+
   }
 
   function playPrevious() {
@@ -81,10 +100,15 @@ export function PlayerContextProvider({ children }: PlayerContextProviderProps) 
         playNext,
         playPrevious,
         isPlaying,
+        isLooping,
+        isShuffling,
         togglePlay,
+        toggleLoop,
+        toggleShuffle,
         setPlayingState,
         hasPrevious,
         hasNext,
+        
       }}
     >
     { children }
