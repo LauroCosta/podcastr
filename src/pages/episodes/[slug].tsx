@@ -1,5 +1,6 @@
 import format from "date-fns/format";
 import { ptBR } from "date-fns/locale";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import parseISO from "date-fns/parseISO";
@@ -31,6 +32,9 @@ export default function Episode({ episode }: EpisodeProps) {
 
   return (
     <Container>
+      <Head>
+        <title>{episode.title} | Podcastr</title>
+      </Head>
       <div className="episodeContainer">
         <div className="thumbnailContainer">
           <Link href="/">
