@@ -48,6 +48,6 @@ O aplicativo estará disponível para acesso em seu navegador em `http://localho
 
 ## 📝 Licença
 
-Este projeto está licenciado sob a MIT License - Veja o arquivo de [LICENSE](LICENÇA).
+Este projeto está licenciado sob a MIT License - Veja o arquivo de [LICENÇA](LICENSE).
 
 ---
