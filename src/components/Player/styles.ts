@@ -5,7 +5,7 @@ export const Container = styled.div`
   width: 26.5rem;
   height: 100vh;
 
-  background: var(--purple-500);
+  background: ${props => props.theme.colors.secundary};
   color: var(--white);
 
   display: flex;
@@ -61,7 +61,7 @@ export const Container = styled.div`
 export const EmptyPlayer = styled.div`
   width: 100%;
   height: 20rem;
-  border: 2px dashed var(--purple-300);
+  border: 2px dashed ${props => props.theme.colors.background};
   border-radius: 1.5rem;
   background: linear-gradient(143.8deg, rgba(145, 100, 250, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
 

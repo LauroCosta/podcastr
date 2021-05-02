@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background: var(--white);
+  background: ${props => props.theme.colors.primary};
   height: 6.5rem;
 
   display: flex;
@@ -9,16 +9,17 @@ export const Container = styled.div`
 
   padding: 2rem 4rem;
 
-  border-bottom: 1px solid var(--gray-100);
+  border-bottom: 1px solid ${props => props.theme.colors.border};
 
   p {
     margin-left: 2rem;
     padding: 0.25rem 0 0.25rem 2rem;
-    border-left: 1px solid var(--gray-100);
+    border-left: 1px solid ${props => props.theme.colors.border};
   }
 
   span {
     margin-left: auto;
     text-transform: capitalize;
+    margin-right: 1.5rem;
   }
 `

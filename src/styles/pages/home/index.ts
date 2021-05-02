@@ -6,11 +6,14 @@ export const Homepage = styled.div`
   height: calc(100vh - 6.5rem);
   overflow-y: scroll;
 
+  &::-webkit-scrollbar {
+    width: 0;            
+  }
+
   h2 {
     margin-top: 3rem;
     margin-bottom: 1.5rem;
   }
-
 
   .latestEpisodes{
     ul {
@@ -20,8 +23,8 @@ export const Homepage = styled.div`
       gap: 1.5rem;
 
       li {
-        background: var(--white);
-        border: 1px solid var(--gray-100);
+        background: ${props => props.theme.colors.primary};
+        border: 1px solid ${props => props.theme.colors.border};
         padding: 1.25rem;
         border-radius: 1.5rem;
         position: relative;
@@ -41,7 +44,7 @@ export const Homepage = styled.div`
 
           a {
             display: block;
-            color: var(--gray-800);
+            color: ${props => props.theme.colors.primaryText};
             font-family: Lexend, sans-serif;
             font-weight: 600;
             text-decoration: none;
@@ -95,7 +98,7 @@ export const Homepage = styled.div`
             width: 2.5rem;
             height: 2.5rem;
             background: var(--white);
-            border: 1px solid var(--gray-100);
+            border: 1px solid ${props => props.theme.colors.border};
             border-radius: 0.675rem;
             font-size: 0;
 
@@ -122,11 +125,11 @@ export const Homepage = styled.div`
 
       th, td {
         padding: 0.75rem 1rem;
-        border-bottom: 1px solid var(--gray-100);
+        border-bottom: 1px solid ${props => props.theme.colors.border};
       }
 
       th {
-        color: var(--gray-200);
+        color: ${props => props.theme.colors.secundaryText};
         text-transform: uppercase;
         font: 500 0.75rem Lexend, sans-serif;
         text-align: left;
@@ -142,7 +145,7 @@ export const Homepage = styled.div`
         }
 
         a {
-          color: var(--gray-800);
+          color: ${props => props.theme.colors.primaryText};
           font-family: Lexend, sans-serif;
           font-weight: 600;
           text-decoration: none;
