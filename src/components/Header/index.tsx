@@ -4,6 +4,7 @@ import Switch from "react-switch";
 import Link from 'next/link'; 
 import { Container } from '../Header/styles';
 import { useTheme } from '../../contexts/ThemeContext';
+import light from '../../styles/themes/light';
 
 export function Header() {
   const currentDate = format(new Date(), 'EEEEEE, d MMMM',{
@@ -15,7 +16,11 @@ export function Header() {
   return (
     <Container>
       <Link href="/">
-       <a><img src="/logo.svg" alt="Podcastr"/></a>
+       <a>{
+          title === "light" 
+          ? <img src="/logo.svg" alt="Podcastr"/> 
+          : <img src="/logo-dark-theme.svg" alt="Podcastr"/>
+        }</a>
       </Link>
 
       <p>O melhor para você ouvir, sempre</p>

@@ -79,7 +79,7 @@ export const Homepage = styled.div`
                 width: 4px;
                 height: 4px;
                 border-radius: 2px;
-                background: #ddd;
+                background: ${props => props.theme.colors.secundaryText};
                 position: absolute;
                 left: 0;
                 top: 50%;

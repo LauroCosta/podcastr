@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div`
   height: calc(100vh - 6.5rem);
   overflow-y: scroll;
+    &::-webkit-scrollbar {
+    width: 0;            
+  }
 
   .episodeContainer {
     max-width: 45rem;
@@ -48,16 +51,18 @@ export const Container = styled.div`
 
     header {
       padding-bottom: 1rem;
-      border-bottom: 1px solid var(--gray-100);
+      border-bottom: 1px solid ${props => props.theme.colors.border};
 
       h1 {
         margin-top: 2rem;
         margin-bottom: 1.5rem;
+        color: ${props => props.theme.colors.primaryText}
       }
 
       span {
         display: inline-block;
         font-size: 0.875rem;
+        color: ${props => props.theme.colors.secundaryText};
 
         & + span {
           margin-left: 1rem;
@@ -69,7 +74,7 @@ export const Container = styled.div`
             width: 4px;
             height: 4px;
             border-radius: 2px;
-            background: #ddd;
+            background: ${props => props.theme.colors.secundaryText};
             position: absolute;
             left: 0;
             top: 50%;
@@ -82,7 +87,7 @@ export const Container = styled.div`
     .description {
       margin-top: 2rem;
       line-height: 1.675rem;
-      color: var(--gray-800);
+      color: ${props => props.theme.colors.primaryText};
 
       p {
         margin: 1.5rem 0;
