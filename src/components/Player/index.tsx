@@ -6,10 +6,11 @@ import "rc-slider/assets/index.css";
 import { usePlayer } from "../../contexts/PlayerContext";
 import { Buttons, Container, EmptyPlayer, Progress } from "./styles";
 import { converDurationToTimeString } from "../../utils/convertDurationToTimeString";
+import { useTheme } from "styled-components";
 
 export function Player() {
   const audioRef = useRef<HTMLAudioElement>(null);
-
+  const theme = useTheme()
   const [progress, setProgress] = useState(0);
 
   const { 
@@ -99,7 +100,7 @@ export function Player() {
                 value={progress}
                 onChange={handleSeek}
                 trackStyle={{ backgroundColor: "#04d361"}}
-                railStyle={{ backgroundColor: "#9f75ff"}}
+                railStyle={{ backgroundColor: theme.colors.secundaryPlayer}}
                 handleStyle= {{ borderColor: "#04d361", borderWidth: 4}}
               />
             ) : (

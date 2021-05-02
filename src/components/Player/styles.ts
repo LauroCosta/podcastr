@@ -61,9 +61,9 @@ export const Container = styled.div`
 export const EmptyPlayer = styled.div`
   width: 100%;
   height: 20rem;
-  border: 2px dashed ${props => props.theme.colors.background};
+  border: 2px dashed ${props => props.theme.colors.dashedPlayer};
   border-radius: 1.5rem;
-  background: linear-gradient(143.8deg, rgba(145, 100, 250, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(143.8deg, ${props => props.theme.colors.secundaryPlayer} 0%, rgba(0, 0, 0, 0) 100%);
 
   padding: 4rem;
   text-align: center;
@@ -91,7 +91,7 @@ export const Progress = styled.div`
     .emptySlider {
       width: 100%;
       height: 4px;
-      background: var(--purple-300);
+      background: ${props => props.theme.colors.secundaryPlayer};
       border-radius: 2px;
     }
   }
@@ -133,8 +133,8 @@ export const Buttons = styled.div`
       width: 4rem;
       height: 4rem;
       border-radius: 1rem;
-      background: var(--purple-400);
-
+      background: ${props => props.theme.colors.secundaryPlayer};
+      
       &:hover:not(:disabled) {
         filter: brightness(0.95);
       }

@@ -7,7 +7,11 @@ export default {
     secundary: "#36383F",
     primaryText: "#BEBEBE",
     secundaryText: "#7F7F7F",
-    border: "#36383F"
+    border: "#36383F",
+    dashedPlayer: "#494D4B",
+    primaryPlayer: "#36383F",
+    secundaryPlayer: "#202225",
+    backgroundButton: "#36383F",
   },
 };
 

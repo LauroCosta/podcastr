@@ -11,6 +11,10 @@ declare module 'styled-components'{
       primaryText: string,
       secundaryText: string,
       border: string,
+      dashedPlayer: string,
+      primaryPlayer: string,
+      secundaryPlayer: string,
+      backgroundButton: string,
     },
 
   }

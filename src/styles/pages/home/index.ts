@@ -97,7 +97,7 @@ export const Homepage = styled.div`
 
             width: 2.5rem;
             height: 2.5rem;
-            background: var(--white);
+            background: ${props => props.theme.colors.backgroundButton};
             border: 1px solid ${props => props.theme.colors.border};
             border-radius: 0.675rem;
             font-size: 0;
@@ -161,8 +161,8 @@ export const Homepage = styled.div`
         button {
           width: 2rem;
           height: 2rem;
-          background: var(--white);
-          border: 1px solid var(--gray-100);
+          background: ${props => props.theme.colors.backgroundButton};
+          border: 1px solid ${props => props.theme.colors.border};
           border-radius: 0.675rem;
           font-size: 0;
 
