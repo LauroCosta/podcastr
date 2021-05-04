@@ -8,9 +8,10 @@
   Podcastr é uma plataforma construída para transmissão de podcast.
 </h4>
 
-![Podcastr preview](.github/app-preview.png)
+![Podcastr preview](.github/screen.gif)
 
 ## Tecnologias
+  
 
 <div align="center">
   <br />
